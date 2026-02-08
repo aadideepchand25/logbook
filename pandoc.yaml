@@ -1,0 +1,5 @@
+documentclass: article
+fontsize: 11pt
+geometry: margin=0.5in
+toc: false
+numbersections: true
