@@ -1,5 +1,11 @@
+pdf-engine: lualatex
 documentclass: article
 fontsize: 11pt
-geometry: margin=0.5in
-toc: false
+geometry:
+  - margin=1in
 numbersections: true
+colorlinks: true
+linkcolor: blue
+toc: false
+highlight-style: tango
+monofont: JetBrains Mono
