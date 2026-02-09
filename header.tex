@@ -2,15 +2,26 @@
 % header.tex for consistent style
 % ----------------------------
 
-% --- Headers and footers ---
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\fancyhf{} % clear defaults
-\fancyhead[L]{Personal Technical Logbook} % left header
-\fancyhead[R]{\leftmark} % section title on right
-\fancyfoot[C]{\thepage} % centered page number
-\renewcommand{\headrulewidth}{0.5pt} % header line thickness
-\renewcommand{\footrulewidth}{0.5pt} % footer line thickness
+\fancyhf{} % Clear defaults
+
+% Header configuration
+\lhead{\small \textbf{COMP2323 Logbook}}
+\rhead{\small \leftmark} % Automatically pulls the current # Heading
+
+% Footer configuration
+\lfoot{\small Aadi Deepchand}
+\rfoot{\small Page \thepage}
+
+% Add lines to header and footer
+\renewcommand{\headrulewidth}{0.5pt}
+\renewcommand{\footrulewidth}{0.5pt}
+
+% Ensure section names are updated for the header
+\renewcommand{\sectionmark}[1]{\markboth{#1}{}}
+
+
 
 % --- Section and subsection styling ---
 \usepackage{titlesec}

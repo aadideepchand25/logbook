@@ -1,4 +1,4 @@
-# COMP2323 - Logbook {#README}
+# Contents {#README}
 
 Logbook containing all information related to computer systems learnt in this module
 
