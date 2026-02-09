@@ -1,11 +1,18 @@
-pdf-engine: lualatex
+pdf-engine: xelatex
 documentclass: article
 fontsize: 11pt
 geometry:
+  - a4paper
   - margin=1in
+mainfont: Arial
+monofont: JetBrains Mono
 numbersections: true
 colorlinks: true
 linkcolor: blue
-toc: false
 highlight-style: tango
-monofont: JetBrains Mono
+header-includes:
+  - \usepackage{fancyhdr}
+  - \usepackage{titlesec}
+  - \usepackage{titling}
+  - \usepackage{hyperref}
+  - \newcommand{\entrytitle}[1]{\section*{#1}\addcontentsline{toc}{section}{#1}\vspace{0.5cm}\hrule\vspace{0.5cm}}

@@ -1,15 +1,88 @@
+% ----------------------------
+% header.tex for consistent style
+% ----------------------------
+
+% --- Headers and footers ---
 \usepackage{fancyhdr}
 \pagestyle{fancy}
-\fancyhf{}
-\fancyhead[L]{Personal Technical Logbook}
-\fancyhead[R]{\leftmark}
-\fancyfoot[C]{\thepage}
+\fancyhf{} % clear defaults
+\fancyhead[L]{Personal Technical Logbook} % left header
+\fancyhead[R]{\leftmark} % section title on right
+\fancyfoot[C]{\thepage} % centered page number
+\renewcommand{\headrulewidth}{0.5pt} % header line thickness
+\renewcommand{\footrulewidth}{0.5pt} % footer line thickness
 
+% --- Section and subsection styling ---
 \usepackage{titlesec}
-\titleformat{\section}
-  {\large\bfseries}
-  {\thesection}{1em}{}
+\titleformat{\section}{\large\bfseries}{\thesection}{1em}{}
+\titleformat{\subsection}{\normalsize\bfseries}{\thesubsection}{1em}{}
+\titlespacing*{\section}{0pt}{2ex plus 1ex minus .2ex}{1ex plus .2ex}
+\titlespacing*{\subsection}{0pt}{1.5ex plus 0.5ex minus 0.2ex}{0.8ex plus 0.2ex}
 
-\titleformat{\subsection}
-  {\normalsize\bfseries}
-  {\thesubsection}{1em}{}
+% --- Paragraph spacing & line spacing ---
+\usepackage{setspace}
+\setstretch{1.1} % slightly looser line spacing
+\usepackage{parskip} % no indent, adds space between paragraphs
+
+% --- Code block formatting ---
+\usepackage{fvextra} % fancy verbatim
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{
+  breaklines,
+  fontsize=\small,
+  frame=lines,
+  rulecolor=\color{black!50},
+  framesep=2mm
+}
+
+% This makes blockquotes look like "Note" boxes
+\usepackage{tcolorbox}
+\renewenvironment{quote}
+  {\begin{tcolorbox}[colback=gray!5, colframe=gray!40, arc=2pt, boxrule=0.5pt]}
+  {\end{tcolorbox}}
+
+% --- Figures ---
+\usepackage{graphicx}
+\usepackage{float}
+\floatplacement{figure}{H} % place figures exactly where in Markdown
+
+% --- Page background (optional) ---
+\usepackage{xcolor}
+\usepackage{pagecolor}
+\pagecolor{white} % subtle grey possible: gray!5
+
+% --- Title, author, date formatting ---
+\usepackage{titling}
+\pretitle{\begin{center}\Large\bfseries}
+\posttitle{\par\end{center}\vskip 0.5em}
+\preauthor{\begin{center}\small}
+\postauthor{\par\end{center}}
+\predate{\begin{center}\small}
+\postdate{\par\end{center}\vskip 1em}
+
+% --- Hyperlinks and metadata ---
+\usepackage[hidelinks]{hyperref} % clickable references without ugly boxes
+\hypersetup{
+  pdfauthor={Aadi Deepchand},
+  pdftitle={Personal Technical Logbook},
+  colorlinks=false
+}
+
+% --- Monospace font for code ---
+\usepackage{fontspec} % if using xelatex or lualatex
+\setmonofont{JetBrains Mono}
+
+% --- Ensure packages don’t interfere ---
+\usepackage{etoolbox}
+% patch commands if needed in future
+
+
+
+% Automatically add space and rules between entries
+\usepackage{titlesec}
+\newcommand{\entrytitle}[1]{%
+  \section*{#1}%
+  \addcontentsline{toc}{section}{#1}%
+  \vspace{0.5cm}%
+  \hrule
+  \vspace{0.5cm}%
+}

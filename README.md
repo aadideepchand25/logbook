@@ -1,6 +1,6 @@
-# COMP2323 - Logbook
+# COMP2323 - Logbook {#README}
 
 Logbook containing all information related to computer systems learnt in this module
 
 ## Articles
-- [080226-2231] Overview
+- [Overview](#080226-2231)
